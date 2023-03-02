@@ -9,3 +9,9 @@
  * HINT:
  * This can be solved using either a LEFT JOIN or the NOT IN operator.
  */
+
+SELECT actor.last_name, actor.first_name
+FROM actor
+WHERE actor.first_name || ' ' || actor.last_name NOT IN 
+(SELECT customer.first_name || ' ' || customer.last_name
+    FROM customer) ORDER BY actor.last_name, actor.first_name ASC;
